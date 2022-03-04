@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-title>Nuevo Cliente</ion-title>
+    <ion-buttons  slot="end">
+      <ion-button fill="clear" (click)="didcerrar()">
+        <ion-icon slot="end" size="large" src="/assets/icon/App_Icono_Cerrar.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-label>Nombre:</ion-label>
+  <ion-item class="login">
+    <ion-input type="text" [(ngModel)]="form.nombre"></ion-input>
+  </ion-item>
+  <ion-label>Apellidos:</ion-label>
+  <ion-item class="login">
+    <ion-input type="text" [(ngModel)]="form.apellidos"></ion-input>
+  </ion-item>
+  <ion-label>Teléfono Movil:</ion-label>
+  <ion-item class="login">
+    <ion-input type="text" [(ngModel)]="form.telefono_movil"></ion-input>
+  </ion-item>
+  <ion-label>Teléfono Fijo:</ion-label>
+  <ion-item class="login">
+    <ion-input type="text" [(ngModel)]="form.telefono"></ion-input>
+  </ion-item>
+  <ion-label>Correo Electrónico:</ion-label>
+  <ion-item class="login">
+    <ion-input type="text" [(ngModel)]="form.email"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button expand="block" shape="round" color="principal" (click)="agregar()"
+  [disabled]="form.nombre==''|| form.apellidos==''|| form.telefono_movil==''|| form.email==''">
+    Agregar
+  </ion-button>
+</ion-content>

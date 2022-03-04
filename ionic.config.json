@@ -1,0 +1,7 @@
+{
+  "name": "Comanda-arroyo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,24 @@
+<ion-content class="ion-text-center ion-padding">
+  <ion-button class="position" color="principal" fill="clear" (click)="didcerrar()">
+    <ion-icon slot="end" size="large" src="/assets/icon/App_Icono_Cerrar.svg"></ion-icon>
+  </ion-button>
+  <br>
+  <ion-text color="principal">
+    <h3>Cancelar Comanda</h3>
+  </ion-text>
+  <p class="ion-text-center">
+    Gte. Tienda valide su identidad
+  </p>
+  <ion-item class="login ion-text-center">
+    <ion-input type="password" placeholder="********"[(ngModel)]="pass" ></ion-input>
+  </ion-item>
+  <span class="span__error_card-number"
+  *ngIf="pass.length>1 && pass!= auth.old_password">
+  **** Contraseña invalida ****
+</span>
+<br>
+  <ion-button (click)="verifica()" expand="block" fill="solid" shape="round"
+  [disabled]="pass!= auth.old_password || pass==''" color="principal">
+    Verificar
+  </ion-button>
+</ion-content>

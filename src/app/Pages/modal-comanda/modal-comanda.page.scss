@@ -1,0 +1,41 @@
+h6, h5{  
+    margin: 8px 0px 0px 0px;
+    color: var(--ion-color-dark);
+  }
+  .img{
+      margin: 0 auto;
+      width: 40%;
+      height: 120px;
+  }
+  .inputgrande{
+      font-size: 25px;
+  }
+  .one-product{
+    width: 40%;
+    position: absolute;
+    top: 0%;
+    right:0%;
+  }
+  .list-product{
+    width: 40%;
+    position: absolute;
+    top: 48%;
+    right:0%;
+  }
+  #div1 {
+    overflow:scroll;
+    height:270px;
+    width:100%;
+}
+#div1 table {
+   width:100%;
+}
+.mitd{
+    text-align: center;
+    background-color: var(--ion-color-principal);
+    color: white;
+    height: 30px;
+}
+.btntam{
+  height: 43px;
+}

@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-title class="ion-text-center"> {{ title }} </ion-title>
+    <ion-buttons *ngIf="back" slot="end">
+      <ion-button (click)="onLogout()">
+        <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons *ngIf="modal" slot="end">
+      <ion-button fill="clear" (click)="didcerrar()">
+        <ion-icon slot="end" size="large" src="/assets/icon/App_Icono_Cerrar.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

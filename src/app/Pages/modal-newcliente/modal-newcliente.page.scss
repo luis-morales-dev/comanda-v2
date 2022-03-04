@@ -1,0 +1,8 @@
+ion-content{
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--ion-color-principal);
+    --webkit-box-shadow: 2px 2px 10px rgb(59, 58, 58);
+    --moz-box-shadow: 2px 2px 10px rgb(44, 43, 43);
+    filter: shadow(color=#3f3f3fb8, direction=135, strength=2);
+}

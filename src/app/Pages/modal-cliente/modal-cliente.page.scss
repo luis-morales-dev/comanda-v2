@@ -1,0 +1,12 @@
+.list-clientes{
+    height: 75%;
+    overflow-y: scroll;
+
+}
+ion-item:hover{
+    border-radius:10px !important;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--ion-color-principal);
+    color: var(--ion-color-principal);
+  }

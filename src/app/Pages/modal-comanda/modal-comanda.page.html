@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar color="principal">
+    <ion-title class="ion-text-center">Comanda {{Comanda.comanda}} </ion-title>
+    <ion-buttons slot="start">
+      <ion-button size="large" color="danger" fill="solid" (click)="cancelar()">
+        Cancelar
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button size="large" color="light" fill="solid" (click)="guardar()">
+        <ion-icon size="large" name="remove-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style="width: 50%;">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+          <h1>Cliente:</h1>
+        </ion-col>
+        <ion-col size="10">
+          <h1>{{Comanda.cliente}}</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-searchbar placeholder="Ej: camaron" mode="ios" (ionChange)="onSearchChange($event)" [debounce]="500">
+          </ion-searchbar>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="one-product">
+    <ion-card class="ion-text-center ion-no-padding ion-no-margin">
+        <h5> {{one_Producto.nombre}} </h5>
+      <ion-card-content class="ion-no-padding">
+        <ion-img *ngIf="one_Producto.avatar==null" class="img" src="/assets/img/noimagen.png"></ion-img>
+        <ion-img *ngIf="one_Producto.avatar!=null" class="img" [src]="one_Producto.avatar"></ion-img>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4">
+              <ion-button class="btntam" color="success" expand="block" (click)="masmas()"
+                [disabled]="one_Producto.id==undefined">
+                <ion-icon size="large" name="add"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="5">
+              <ion-item class="login ion-text-center">
+                <ion-input type="number" [disabled]="one_Producto.id==undefined" [(ngModel)]="one_Producto.cantidad">
+                </ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="3">
+              <ion-button class="btntam" color="danger" expand="block" (click)="menosmenos()"
+                [disabled]="one_Producto.id==undefined">
+                <ion-icon size="large" name="remove-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="2">
+              <ion-button fill="clear" expand="block" color="warning">
+                <ion-icon size="large" name="create"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item class="login">
+                <ion-label>Costo:</ion-label>
+                <ion-input type="number" [(ngModel)]="one_Producto.precio_venta"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button class="btntam" color="principal" expand="block" (click)="addproduct()"
+                [disabled]="one_Producto.precio_venta<one_Producto.costo || one_Producto.precio_venta== null || one_Producto.id== undefined ">
+                Agregar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div class="list-product">
+    <div id="div1">
+      <table border="1">
+        <tr>
+          <td class="mitd">Producto</td>
+          <td class="mitd">Cant.</td>
+          <td class="mitd">Costo</td>
+          <td class="mitd">Sub.</td>
+          <td class="mitd">Acci.</td>
+        </tr>
+        <tr class="ion-text-center" *ngFor="let p of productosfinales; let i = index">
+          <td style="width: 45%;">{{p.nombre}}</td>
+          <td>{{p.cantidad}}</td>
+          <td>{{p.precio_venta| currency}}</td>
+          <td>{{p.sub_total| currency}}</td>
+          <td>
+            <ion-button expand="block" fill="clear" (click)="deleteuno(i)" color="danger" shape="round">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <ion-row>
+      <ion-col size="2">
+        <ion-button fill="clear" expand="block" color="warning">
+          <ion-icon size="large" name="create"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item class="login">
+          <ion-label>Total:$</ion-label>
+          <ion-input type="number" [(ngModel)]="Comanda.Total"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button class="btntam" expand="block" (click)="enviarComanda()" color="tertiary"
+        [disabled]="Comanda.Total==0|| Comanda.Total==null || productosfinales.length==0 ">
+          Validar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+  <app-view-producto [productos]="productos" (miproducto)="selectProducto($event)"></app-view-producto>
+</ion-content>

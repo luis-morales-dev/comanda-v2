@@ -1,0 +1,39 @@
+<ion-content>
+  <div class="verde">
+  </div>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <form class="formulario ion-padding ion-text-center" [formGroup]="loginform" (ngSubmit)='acceder()'>
+          <img src="/assets/icon/logo.png" srcset="">
+          <ion-text>
+            <h3><b>Iniciar Sesión</b></h3>
+          </ion-text>
+          <ion-item class="login" color="nada">
+            <ion-icon slot="start" name="person"></ion-icon>
+            <ion-input type="text" name="username" formControlName="username" placeholder="Usuario"></ion-input>
+          </ion-item>
+          <span class="span__error_card-number"
+            *ngIf="loginform.get('username').touched && loginform.get('username').errors">
+            ** Campo requerido
+          </span>
+          <br>
+          <ion-item class="login" color="nada">
+            <ion-icon slot="start" name="lock-closed"></ion-icon>
+            <ion-input type="password" name="password" formControlName="password" (keyup.enter)="acceder()"
+              placeholder="Contraseña"></ion-input>
+          </ion-item>
+          <span class="span__error_card-number"
+            *ngIf="loginform.get('password').touched && loginform.get('password').errors">
+            ** Campo requerido
+          </span>
+          <br>
+          <br>
+          <ion-button expand="block" type="submit" color="principal" shape="round" [disabled]="loginform.invalid">
+            <b>ingresar</b>
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
